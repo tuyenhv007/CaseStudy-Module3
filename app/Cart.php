@@ -2,13 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+
+class Cart
 {
-    public $items;
-    public $totalPrice;
-    public $totalQty;
+    public $items=[];
+    public $totalPrice=0;
+    public $totalQty=0;
 
     public function __construct($oldCart)
     {
@@ -55,6 +55,7 @@ class Cart extends Model
 
     public function update($request, $id)
     {
+
         if ($this->items) {
             $productsInCart = $this->items;
             if (array_key_exists($id, $productsInCart)) {

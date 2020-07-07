@@ -117,7 +117,7 @@
                     <a href="{{route('shop-home')}}" class="btn btn-lg btn-block btn-success text-uppercase">Continue Shopping</a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                    <a href="{{route('cart.checkout')}}" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</a>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
                     Chưa có sản phẩm nào trong giỏ hàng
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('home')}}">Continus Shoping </a>
+                    <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>
                 <td>
             </tr>
             </table>
