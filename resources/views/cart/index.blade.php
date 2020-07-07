@@ -91,11 +91,12 @@
                             <td style="width: 15%">
                                 <input type="number" name="qty"  min="1" class="form-control" value="{{ $item['totalQty'] }}">
                             </td>
-                        <td class="text-right">${{ $item['item']->price }}</td>
-                        <td class="text-right">${{ $item['totalPrice'] }}</td>
+                        <td class="text-right">{{number_format($item['item']->price)}} VNĐ</td>
+                        <td class="text-right">{{number_format($item['totalPrice'])}} VNĐ</td>
                             <td class="text-right"><button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i> </button> </td>
                         <td class="text-right"><a href="{{route('cart.remove',$item['item']->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
                         </form>
+
                     </tr>
                         @endforeach
 
@@ -105,7 +106,8 @@
                         <td></td>
                         <td></td>
                         <td class="text-right"><strong>Total</strong></td>
-                        <td class="text-right"><strong>{{ $cart->totalPrice }}</strong></td>
+                        <td class="text-right"><strong>{{number_format($cart->totalPrice)}} VNĐ</strong></td>
+                        <td colspan="2"></td>
                     </tr>
                     </tbody>
 

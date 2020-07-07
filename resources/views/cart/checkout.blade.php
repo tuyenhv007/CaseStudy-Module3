@@ -1,9 +1,11 @@
 
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+{{--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">--}}
+{{--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>--}}
+{{--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--}}
+{{--<!------ Include the above in your HEAD tag ---------->--}}
+@extends('user.layouts.master-user')
 
+@section('content')
 <form class="form-horizontal" action='{{route('cart.payment')}}' method="POST">
     @csrf
     <fieldset>
@@ -64,3 +66,4 @@
 </form>
 
 
+@endsection
