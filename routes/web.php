@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/admin/login', 'LoginController@formLogin')->name('login');
+Route::post('/admin/login', 'LoginController@login')->name('admin.login');
 Route::get('/', 'ShopController@index')->name('shop-home');
 Route::get('/{idProduct}/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::prefix('cart')->group(function () {
     Route::get('/', 'CartController@index')->name('cart.index');
 });
+
