@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/admin/login', 'LoginController@formLogin')->name('login');
+Route::post('/admin/login', 'LoginController@login')->name('admin.login');
 Route::get('/', 'ShopController@index')->name('shop-home');
 Route::get('/{idProduct}/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::prefix('cart')->group(function () {
@@ -20,3 +23,4 @@ Route::prefix('cart')->group(function () {
     Route::get('/{idProduct}/remove','CartController@remove')->name('cart.remove');
     Route::post('/{idProduct}/update','CartController@update')->name('cart.update');
 });
+
