@@ -26,3 +26,7 @@ Route::prefix('cart')->group(function () {
     Route::post('checkout','CartController@payment')->name('cart.payment');
 });
 
+Route::prefix('user')->group(function () {
+    Route::get('/bill', 'BillController@show')->name('bill.show');
+});
+
