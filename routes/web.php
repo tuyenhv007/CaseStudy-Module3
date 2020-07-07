@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/admin', function () {
+    return view('admin.layouts.master');
+});
 Route::get('/', function () {
     return view('user.home');
+});
+Route::get('/add', function () {
+    return view('product.add');
 });
