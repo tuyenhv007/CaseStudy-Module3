@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-});
+Route::get('/admin/login', 'LoginController@formLogin')->name('login');
+
+
+Route::post('/admin/login', 'LoginController@login')->name('admin.login');
