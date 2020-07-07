@@ -40,4 +40,34 @@ class Cart extends Model
 
     }
 
+    public function remove($id)
+    {
+        if ($this->items) {
+            $productsInCart = $this->items;
+            if (array_key_exists($id, $productsInCart)) {
+                $this->totalPrice -= $productsInCart[$id]['totalPrice'];
+                $this->totalQty -= $productsInCart[$id]['totalQty'];
+                unset($productsInCart[$id]);
+                $this->items = $productsInCart;
+            }
+        }
+    }
+
+    public function update($request, $id)
+    {
+        if ($this->items) {
+            $productsInCart = $this->items;
+            if (array_key_exists($id, $productsInCart)) {
+                $productUpdate = $productsInCart[$id];
+                $qtyUpdate = $request->qty - $productUpdate['totalQty'];
+                $this->totalQty += $qtyUpdate;
+                $priceUpdate = $productUpdate['item']->price * $request->qty - $productUpdate['totalPrice'];
+                $this->totalPrice += $priceUpdate;
+                $productUpdate['totalQty'] = $request->qty;
+                $productUpdate['totalPrice'] = $productUpdate['item']->price * $request->qty;
+                $this->items[$id] = $productUpdate;
+            }
+        }
+    }
+
 }
