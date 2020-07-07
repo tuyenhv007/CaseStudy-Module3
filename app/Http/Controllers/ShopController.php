@@ -14,6 +14,6 @@ class ShopController extends Controller
     }
     public function index(){
         $products=$this->product->all();
-        return view('user.home',compact('products'));
+        return view('home',compact('products'));
     }
 }
