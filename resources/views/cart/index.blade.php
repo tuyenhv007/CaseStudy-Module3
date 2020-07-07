@@ -65,28 +65,30 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" >
                     <thead>
                     <tr>
                         <th scope="col"> </th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Available</th>
+                        <th scope="col" class="text-center">Product</th>
+                        <th scope="col" class="text-center">Available</th>
                         <th scope="col" class="text-center">Quantity</th>
                         <th scope="col" class="text-right">Price</th>
                         <th scope="col" class="text-right">Total Price</th>
-                        <th> </th>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
+
                     </tr>
                     </thead>
                     <tbody>
                     @empty(!$cart)
                         @foreach($cart->items as $item)
                     <tr>
-                        <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                        <td>{{ $item['item']->name }}</td>
-                        <td>In stock</td>
+                        <td class="text-center"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                        <td class="text-center">{{ $item['item']->name }}</td>
+                        <td class="text-center">In stock</td>
                         <form action="{{route('cart.update',$item['item']->id)}}" method="post">
                             @csrf
-                            <td class="col-sm-1 col-md-1" style="text-align: center">
+                            <td style="width: 15%">
                                 <input type="number" name="qty"  min="1" class="form-control" value="{{ $item['totalQty'] }}">
                             </td>
                         <td class="text-right">${{ $item['item']->price }}</td>
@@ -102,7 +104,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><strong>Total</strong></td>
+                        <td class="text-right"><strong>Total</strong></td>
                         <td class="text-right"><strong>{{ $cart->totalPrice }}</strong></td>
                     </tr>
                     </tbody>
@@ -123,7 +125,7 @@
         </div>
         @else
             <table>
-            <tr><td colspan="4">
+            <tr><td colspan="6">
                     Chưa có sản phẩm nào trong giỏ hàng
                 </td>
                 <td>

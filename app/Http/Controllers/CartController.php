@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bill;
 use App\Cart;
 use App\Customer;
+use App\Detail;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -72,6 +73,8 @@ class CartController extends Controller
     }
     public function checkOut()
     {
+//     $cart = Session::get('cart');
+//    dd($cart->items);
         return view('cart/checkout');
     }
     public function payment(Request $request){
@@ -89,6 +92,7 @@ class CartController extends Controller
         $bill->customer_id = $customer1[count($customer1) - 1]['id'];
         $bill->save();
         toastr()->success('Đơn hàng của bạn đang được xử lý ');
+
         foreach ($cart->items as $key => $product){
             $bill->products()->attach($key);
         }
