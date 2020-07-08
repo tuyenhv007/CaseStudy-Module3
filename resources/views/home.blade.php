@@ -48,7 +48,7 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> 15-TT04-MonCity-HaNoi</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+
             </ul>
         </div>
     </div>
