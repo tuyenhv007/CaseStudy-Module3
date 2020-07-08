@@ -16,13 +16,14 @@
                     <label>Price</label>
                     <input type="text" name="price" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Quantity</label>
-                    <input type="text" name="quantity" class="form-control">
-                </div>
+
                 <div class="form-group">
                     <label>Description</label>
                     <input type="text" class="form-control" name="desc">
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="text" name="quantity" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Images</label>

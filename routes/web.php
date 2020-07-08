@@ -19,6 +19,9 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return view('user.home');
 });
-Route::get('/add', function () {
-    return view('product.add');
+
+Route::prefix('admin')->group(function(){
+    Route::get('product','ProductController@index')->name('products.index');
+    Route::get('addproduct','ProductController@create')->name('products.create');
+    Route::post('addproduct','ProductController@store')->name('products.store');
 });
