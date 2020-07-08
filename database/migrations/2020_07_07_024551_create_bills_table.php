@@ -18,7 +18,7 @@ class CreateBillsTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->string('totalPrice');
-            $table->string('status')->default('ordered');
+            $table->string('status')->default('Đang xử lý');
             $table->string('note')->nullable();
             $table->timestamps();
         });
