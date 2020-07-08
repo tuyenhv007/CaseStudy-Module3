@@ -13,6 +13,7 @@
 
 
 <body>
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{route('shop-home')}}">CodeGym Computer</a>
@@ -66,6 +67,7 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
+                @empty(!($cart->items))
                 <table class="table table-striped text-center" >
                     <thead>
                     <tr>
@@ -81,7 +83,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @empty(!$cart)
+
                         @foreach($cart->items as $item)
                     <tr>
                         <td class="text-center "><img style="width: 100px"  src={{asset("storage/".$item['item']->image)}} /> </td>
@@ -124,7 +126,7 @@
         @else
             <table>
             <tr><td colspan="6">
-                    Chưa có sản phẩm nào trong giỏ hàng
+                    <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
                 </td>
                 <td>
                     <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>

@@ -19,7 +19,7 @@ class CreateBillsTable extends Migration
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->string('totalPrice');
             $table->string('status')->default('ordered');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }
