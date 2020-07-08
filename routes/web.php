@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
+    Route::get('/login', 'LoginController@formLogin')->name('login');
+    Route::post('/login', 'LoginController@login')->name('admin.login');
+    Route::get('/bill', 'BillController@index')->name('bill.index');
+    Route::get('/bill/detail', 'BillController@billDetail')->name('bill.detail');
+});
 
-Route::get('/admin/login', 'LoginController@formLogin')->name('login');
-Route::post('/admin/login', 'LoginController@login')->name('admin.login');
+//Route::get('/admin/bill', 'BillController@getCustomerByBill');
+//Route::get('/admin/bill', 'BillController@getProductByBill');
 Route::get('/', 'ShopController@index')->name('shop-home');
 Route::get('/{idProduct}/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::prefix('cart')->group(function () {
@@ -26,6 +33,7 @@ Route::prefix('cart')->group(function () {
     Route::post('checkout','CartController@payment')->name('cart.payment');
 });
 
+
 Route::prefix('user')->group(function () {
     Route::get('/bill', 'BillController@show')->name('bill.show');
     Route::get('/product','ProductController@index')->name('product.index');
@@ -35,4 +43,6 @@ Route::prefix('user')->group(function () {
     Route::get('/{id}/edit','ProductController@edit')->name('product.edit');
     Route::post('/{id}/edit','ProductController@update')->name('product.update');
 });
+
+
 
