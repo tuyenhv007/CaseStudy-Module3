@@ -3,30 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Services\CustomerService;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    protected $customerService;
+    public function __construct(CustomerService $customerService)
+    {
+        $this->customerService = $customerService;
+    }
+
     public function index(){
-        $customers= Customer::all();
+        $customers = $this->customerService->getAll();
         return view('customer.list',compact('customers'));
     }
     public function edit($id)
     {
-        $customer = Customer::findOrFail($id);
+        $customer = $this->customerService->find($id);
         return view('customer.edit', compact('customer'));
     }
     public function update(Request $request, $id)
     {
-        $customer = Customer::findOrFail($id);
-        $customer->name = $request->name;
-        $customer->email = $request->email;
-        $customer->address = $request->address;
-        $customer->phone = $request->phone;
-        $customer->save();
+        $customer = $this->customerService->find($id);
+        $this->customerService->update($customer, $request);
         toastr()->success('Chỉnh sửa thông tin khách hàng thành công', 'Success');
         return redirect()->route('customer.index');
     }
+
+
 
 
 }

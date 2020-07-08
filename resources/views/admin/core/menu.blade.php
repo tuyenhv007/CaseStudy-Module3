@@ -19,7 +19,7 @@
         <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav"><a href="{{route('product.add')}}" class="nav-link">Add Product</a><a href="{{route('product.index')}}" class="nav-link">List</a></nav>
         </div>
-        <a class="nav-link collapsed" href=""  >
+        <a class="nav-link collapsed" href="{{ route('bill.index') }}"  >
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
             Bills
         </a>
