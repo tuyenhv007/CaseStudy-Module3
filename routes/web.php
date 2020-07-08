@@ -34,5 +34,9 @@ Route::prefix('user')->group(function () {
     Route::get('/{id}/delete','ProductController@delete')->name('product.delete');
     Route::get('/{id}/edit','ProductController@edit')->name('product.edit');
     Route::post('/{id}/edit','ProductController@update')->name('product.update');
+    Route::get('/customer','CustomerController@index')->name('customer.index');
+    Route::get('/{id}/customer','CustomerController@edit')->name('customer.edit');
+    Route::post('/{id}/customer','CustomerController@update')->name('customer.update');
+
 });
 
