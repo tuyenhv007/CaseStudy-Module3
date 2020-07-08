@@ -84,26 +84,31 @@ class CartController extends Controller
 
     public function checkOut()
     {
-       $cart = Session::get('cart');
-       return view('cart/checkout',compact('cart'));
+        $cart = Session::get('cart');
+        return view('cart/checkout', compact('cart'));
     }
 
     public function payment(Request $request)
     {
+        $cart = Session::get('cart');
         $customer = new Customer();
         $customer->name = $request->name;
         $customer->email = $request->email;
         $customer->address = $request->address;
         $customer->phone = $request->phone;
         $customer->save();
-        $cart = Session::get('cart');
         $bill = new Bill();
         $bill->totalPrice = $cart->totalPrice;
         $bill->note = $request->note;
         $bill->customer_id = $customer->id;
         $bill->save();
         foreach ($cart->items as $key => $product) {
-            $bill->products()->attach($key);
+            $details = new Detail();
+            $details->bill_id=$bill->id;
+            $details->product_id=$key;
+            $details->qtyOrder=$product['totalQty'];
+            $details->save();
+
         }
         toastr()->success('Đơn hàng của bạn đang được xử lý ');
 
