@@ -17,6 +17,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
     Route::get('/login', 'LoginController@formLogin')->name('login');
     Route::post('/login', 'LoginController@login')->name('admin.login');
+    Route::get('/logout', 'LoginController@logout')->name('admin.logout');
+
     Route::get('/bills', 'BillController@index')->name('bills.index');
     Route::get('/bills/{id}/detail', 'BillController@billDetail')->name('bill.detail');
     Route::post('/bills/{id}/update', 'BillController@updateStatusBill')->name('bill.update');
