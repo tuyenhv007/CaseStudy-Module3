@@ -19,10 +19,17 @@
         <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav"><a href="{{route('product.add')}}" class="nav-link">Add Product</a><a href="{{route('product.index')}}" class="nav-link">List</a></nav>
         </div>
-        <a class="nav-link collapsed" href=""  >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
+           aria-controls="collapsePages">
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
             Bills
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <div class="collapse" id="collapsePages" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav"><a href="{{ route('bills.index') }}" class="nav-link">List</a>
+
+        </div>
+
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
            aria-controls="collapsePages">
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
