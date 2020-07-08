@@ -84,9 +84,8 @@ class CartController extends Controller
 
     public function checkOut()
     {
-//     $cart = Session::get('cart');
-//    dd($cart->items);
-        return view('cart/checkout');
+       $cart = Session::get('cart');
+       return view('cart/checkout',compact('cart'));
     }
 
     public function payment(Request $request)
@@ -98,17 +97,16 @@ class CartController extends Controller
         $customer->phone = $request->phone;
         $customer->save();
         $cart = Session::get('cart');
-        $customer1 = Customer::all();
         $bill = new Bill();
         $bill->totalPrice = $cart->totalPrice;
         $bill->note = $request->note;
-        $bill->customer_id = $customer1[count($customer1) - 1]['id'];
+        $bill->customer_id = $customer->id;
         $bill->save();
-        toastr()->success('Đơn hàng của bạn đang được xử lý ');
-
         foreach ($cart->items as $key => $product) {
             $bill->products()->attach($key);
         }
+        toastr()->success('Đơn hàng của bạn đang được xử lý ');
+
         Session::forget('cart');
         return redirect()->route('shop-home');
     }
