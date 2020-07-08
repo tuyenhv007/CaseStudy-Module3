@@ -28,5 +28,8 @@ Route::prefix('cart')->group(function () {
 
 Route::prefix('user')->group(function () {
     Route::get('/bill', 'BillController@show')->name('bill.show');
+    Route::get('/product','ProductController@index')->name('product.index');
+    Route::get('/add-product','ProductController@add')->name('product.add');
+    Route::post('/add-product','ProductController@store')->name('product.store');
 });
 

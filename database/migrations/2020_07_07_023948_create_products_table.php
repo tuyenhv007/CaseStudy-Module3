@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('decs');
             $table->string('qty');
             $table->string('image');
-            $table->string('view_count');
+            $table->string('view_count')->default(0);
             $table->timestamps();
         });
     }
