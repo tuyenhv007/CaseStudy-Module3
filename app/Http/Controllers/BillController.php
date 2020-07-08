@@ -24,15 +24,19 @@ class BillController extends Controller
         return view('admin.list-bill', compact('bills'));
     }
 
-    public function getBillById($billId)
+    public function billDetail($billId)
     {
         $bill = $this->billService->findById($billId);
         return view('admin.bill-detail', compact('bill'));
     }
 
-    public function billDetail()
+    public function updateStatusBill(Request $request, $id)
     {
-        return view('admin.bill-detail');
+        $bill = Bill::findOrFail($id);
+        $bill->status = $request->status;
+        $bill->save();
+
+        return redirect()->route('bills.index');
     }
 
 
