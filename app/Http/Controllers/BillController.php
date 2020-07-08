@@ -35,7 +35,10 @@ class BillController extends Controller
         $bill = Bill::findOrFail($id);
         $bill->status = $request->status;
         $bill->save();
+
         toastr()->success('Cập nhật trạng thái đơn hàng thành công');
+
+
         return redirect()->route('bills.index');
     }
 
