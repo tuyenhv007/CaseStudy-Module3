@@ -1,16 +1,17 @@
-<!doctype html>
 <html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <title> </title>
     @toastr_css
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <script src="{{ asset('js/my.js') }}"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link href="{{asset('css/cart.css')}}" rel="stylesheet" >
+
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
@@ -86,17 +87,12 @@
                         <td class="text-center"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
                         <td class="text-center">{{ $item['item']->name }}</td>
                         <td class="text-center">In stock</td>
-                        <form action="{{route('cart.update',$item['item']->id)}}" method="post">
-                            @csrf
-                            <td style="width: 15%">
-                                <input type="number" name="qty"  min="1" class="form-control" value="{{ $item['totalQty'] }}">
+                        <td style="width: 15%">
+                                <input type="number" name="qty" data-id="{{ $item['item']->id }}" min="1" class="form-control update-product-cart" value="{{ $item['totalQty'] }}">
                             </td>
                         <td class="text-right">{{number_format($item['item']->price)}} VNĐ</td>
-                        <td class="text-right">{{number_format($item['totalPrice'])}} VNĐ</td>
-                            <td class="text-right"><button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i> </button> </td>
+                        <td id="product-subtotal-{{$item['item']->id}}" class="text-right">{{($item['totalPrice'])}} VNĐ</td>
                         <td class="text-right"><a href="{{route('cart.remove',$item['item']->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
-                        </form>
-
                     </tr>
                         @endforeach
 
@@ -106,7 +102,7 @@
                         <td></td>
                         <td></td>
                         <td class="text-right"><strong>Total</strong></td>
-                        <td class="text-right"><strong>{{number_format($cart->totalPrice)}} VNĐ</strong></td>
+                        <td id="total-price-cart" class="text-right"><strong>{{($cart->totalPrice)}} VNĐ</strong></td>
                         <td colspan="2"></td>
                     </tr>
                     </tbody>

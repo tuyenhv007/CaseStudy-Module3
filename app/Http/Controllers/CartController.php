@@ -23,19 +23,22 @@ class CartController extends Controller
     {
 
         $product = $this->product->findOrFail($idProduct);
-        $oldCart=Session::get('cart');
+        $oldCart = Session::get('cart');
 
-        $newCart =new Cart($oldCart);
+        $newCart = new Cart($oldCart);
         $newCart->add($product);
 
-        Session::put('cart',$newCart);
+        Session::put('cart', $newCart);
         toastr()->success('Thêm sản phẩm vào giỏ hàng thành công', 'Success');
         return back();
     }
-    public function index(){
+
+    public function index()
+    {
         $cart = Session::get('cart');
         return view('cart.index', compact('cart'));
     }
+
     public function remove($idProduct)
     {
         if (Session::has('cart')) {
@@ -60,24 +63,34 @@ class CartController extends Controller
             $oldCart = Session::get('cart');
             if (count($oldCart->items) > 0) {
                 $cart = new Cart($oldCart);
-                $cart->update($request ,$idProduct);
+                $cart->update($request, $idProduct);
                 Session::put('cart', $cart);
-                toastr()->success('Giỏ hàng vừa được cập nhật');
+                $message = 'cập nhật giỏ hàng thành công';
             } else {
-                toastr()->error('fail', 'Inconceivable!');
+                $message = 'Bạn chưa mua sản phẩm nào';
             }
         } else {
-            toastr()->error('fail', 'Inconceivable!');
+            $message = 'Bạn chưa mua sản phẩm nào';
         }
-        return back();
+
+        $data = [
+            'productUpdate' => Session::get('cart')->items[$idProduct],
+            'message' => $message,
+            'totalPriceCart' => Session::get('cart')->totalPrice
+        ];
+
+        return response()->json($data);
     }
+
     public function checkOut()
     {
 //     $cart = Session::get('cart');
 //    dd($cart->items);
         return view('cart/checkout');
     }
-    public function payment(Request $request){
+
+    public function payment(Request $request)
+    {
         $customer = new Customer();
         $customer->name = $request->name;
         $customer->email = $request->email;
@@ -93,7 +106,7 @@ class CartController extends Controller
         $bill->save();
         toastr()->success('Đơn hàng của bạn đang được xử lý ');
 
-        foreach ($cart->items as $key => $product){
+        foreach ($cart->items as $key => $product) {
             $bill->products()->attach($key);
         }
         Session::forget('cart');
