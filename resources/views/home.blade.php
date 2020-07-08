@@ -235,7 +235,7 @@
                                 @foreach($products as $product)
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                            <img src={{asset("storage/".$product->image)}} alt="">
                                             <div class="product-label">
 
                                                 <span class="new">NEW</span>

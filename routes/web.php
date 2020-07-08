@@ -31,5 +31,8 @@ Route::prefix('user')->group(function () {
     Route::get('/product','ProductController@index')->name('product.index');
     Route::get('/add-product','ProductController@add')->name('product.add');
     Route::post('/add-product','ProductController@store')->name('product.store');
+    Route::get('/{id}/delete','ProductController@delete')->name('product.delete');
+    Route::get('/{id}/edit','ProductController@edit')->name('product.edit');
+    Route::post('/{id}/edit','ProductController@update')->name('product.update');
 });
 

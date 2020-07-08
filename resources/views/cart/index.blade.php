@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <script src="{{ asset('js/my.js') }}"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+    <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}"/>
 </head>
 
 
@@ -66,10 +66,10 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-striped" >
+                <table class="table table-striped text-center" >
                     <thead>
                     <tr>
-                        <th scope="col"> </th>
+                        <th scope="col"> Image</th>
                         <th scope="col" class="text-center">Product</th>
                         <th scope="col" class="text-center">Available</th>
                         <th scope="col" class="text-center">Quantity</th>
@@ -84,7 +84,7 @@
                     @empty(!$cart)
                         @foreach($cart->items as $item)
                     <tr>
-                        <td class="text-center"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                        <td class="text-center "><img style="width: 100px"  src={{asset("storage/".$item['item']->image)}} /> </td>
                         <td class="text-center">{{ $item['item']->name }}</td>
                         <td class="text-center">In stock</td>
                         <td style="width: 15%">
