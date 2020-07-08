@@ -14,6 +14,11 @@ class LoginController extends Controller
         $this->loginService = $loginService;
     }
 
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
+
     public function formLogin()
     {
         return view('admin.login');
