@@ -196,16 +196,16 @@
                         <h3 class="title">Billing address</h3>
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="name" placeholder="Name">
+                        <input class="input" type="text" name="name" required placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="email" placeholder="Email">
+                        <input class="input" type="email" name="email" required placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="address" placeholder="Address">
+                        <input class="input" type="text" name="address" required placeholder="Address">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="phone" placeholder="phone">
+                        <input class="input" type="text" name="phone" required placeholder="phone">
                     </div>
 
                 </div>
