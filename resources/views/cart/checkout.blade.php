@@ -91,7 +91,9 @@
 
                         <!-- Cart -->
                         <div class="dropdown">
-                            <a href="{{ route('cart.index') }}">
+
+                            <a href="{{route('cart.index')}}">
+
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
                                 <div class="qty">{{\Illuminate\Support\Facades\Session::get('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty : 0 }}</div>
@@ -196,16 +198,18 @@
                         <h3 class="title">Billing address</h3>
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="name" placeholder="Name" required>
+
+                        <input class="input" type="text" name="name" required placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="email" name="email" placeholder="Email" required>
+                        <input class="input" type="email" name="email" required placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="address" placeholder="Address" required>
+                        <input class="input" type="text" name="address" required placeholder="Address">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="number" name="phone" placeholder="phone"required>
+                        <input class="input" type="text" name="phone" required placeholder="phone">
+
                     </div>
 
                 </div>

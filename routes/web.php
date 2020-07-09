@@ -18,7 +18,12 @@ Route::post('/login', 'LoginController@login')->name('admin.login');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
+
+
     Route::get('/logout', 'LoginController@logout')->name('admin.logout');
+
+
+
     Route::get('/bills', 'BillController@index')->name('bills.index');
     Route::get('/bills/{id}/detail', 'BillController@billDetail')->name('bill.detail');
     Route::post('/bills/{id}/update', 'BillController@updateStatusBill')->name('bill.update');
@@ -37,7 +42,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 Route::get('/', 'ShopController@index')->name('shop-home');
 Route::get('/{idProduct}/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::get('/{id}/product-detail','ProductController@viewProduct')->name('product.view');
-Route::get('/menu-product','ProductController@show')->name('product-productlist');
+Route::get('/category','ProductController@show')->name('product-productlist');
 Route::prefix('cart')->group(function () {
     Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/{idProduct}/remove','CartController@remove')->name('cart.remove');
