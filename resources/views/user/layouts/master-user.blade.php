@@ -32,6 +32,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    @toastr_css
     <![endif]-->
 
 </head>
@@ -81,4 +82,7 @@
 <script src="{{asset('js/main.js')}}"></script>
 
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>

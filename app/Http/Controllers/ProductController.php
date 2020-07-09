@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(4);
         return view('product.list', compact('products'));
     }
     public function show(){
@@ -47,6 +47,7 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::findOrFail($id);
+        $product->bills()->detach();
         $product->delete();
         toastr()->success('Xóa sản phẩm thành công');
         return redirect()->route('product.index');
