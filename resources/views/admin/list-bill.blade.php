@@ -6,16 +6,16 @@
         <li class="breadcrumb-item active">
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Users</li>
+        <li class="breadcrumb-item active"><a href="{{ route('bills.index') }}">List</a></li>
     </ol>
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
-    <h2 style="text-align: center; padding-bottom: 18px; color: blue">Danh sách hóa đơn</h2>
+    <h2 style="text-align: center; padding-bottom: 18px; color: blue"><strong>Danh sách hóa đơn</strong></h2>
 
             <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
-                <tr>
+                <tr class="table-info">
                     <th>STT</th>
                     <th>Mã Bill</th>
                     <th class="data-name">Id Khách hàng</th>

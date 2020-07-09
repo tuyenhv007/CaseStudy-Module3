@@ -11,10 +11,7 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}"/>
 </head>
-
-
 <body>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{route('shop-home')}}">CodeGym Computer</a>
@@ -22,7 +19,6 @@
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item m-auto">
@@ -41,7 +37,6 @@
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
-
             <form class="form-inline my-2 my-lg-0">
                 <div class="input-group input-group-sm">
                     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
@@ -66,12 +61,10 @@
         <h1 class="jumbotron-heading">Giỏ hàng của bạn</h1>
     </div>
 </section>
-
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-
                 @empty(!\Illuminate\Support\Facades\Session::get('cart'))
                     <table class="table table-striped text-center">
                         <thead>
@@ -84,7 +77,6 @@
                             <th scope="col" class="text-right">Total Price</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -108,7 +100,6 @@
                                 </td>
                             </tr>
                         @endforeach
-
                         <tr>
                             <td></td>
                             <td></td>
@@ -120,9 +111,7 @@
                             <td colspan="2"></td>
                         </tr>
                         </tbody>
-
                     </table>
-
             </div>
         </div>
         <div class="col mb-2">
@@ -147,7 +136,6 @@
 
                 </tr>
         @endempty
-
     </div>
 </div>
 </body>
