@@ -19,4 +19,19 @@ class ProductRepository
     {
         return $this->product->all();
     }
+
+    public function save($product)
+    {
+        $product->save();
+    }
+
+    public function findById($id)
+    {
+        return $this->product->findOrFail($id);
+    }
+
+    public function deleteProduct($product)
+    {
+        $product->delete();
+    }
 }

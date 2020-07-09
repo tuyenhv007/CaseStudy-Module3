@@ -10,7 +10,7 @@
                 @csrf
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Price</label>
@@ -19,7 +19,7 @@
 
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" class="form-control" name="desc">
+                    <input type="text" class="form-control" name="decs">
                 </div>
                 <div class="form-group">
                     <label>Quantity</label>

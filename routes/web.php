@@ -21,7 +21,13 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function(){
-    Route::get('product','ProductController@index')->name('products.index');
-    Route::get('addproduct','ProductController@create')->name('products.create');
-    Route::post('addproduct','ProductController@store')->name('products.store');
+
+    Route::prefix('products')->group(function (){
+        Route::get('/','ProductController@index')->name('products.index');
+        Route::get('/create','ProductController@create')->name('products.create');
+        Route::post('/create','ProductController@store')->name('products.store');
+        Route::get('/{id}/update','ProductController@edit')->name('products.update');
+        Route::post('/{id}/update','ProductController@update')->name('products.update');
+        Route::get('/{id}/delete','ProductController@delete')->name('products.delete');
+    });
 });

@@ -8,16 +8,19 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    protected $product;
-    public function __construct(ProductService $product)
+    protected $productService;
+
+    public function __construct(ProductService $productService)
     {
-        $this->product=$product;
+        $this->productService = $productService;
     }
+
     public function index()
     {
-        $products = $this->product->getAll();
-        return view('product.list',compact('products'));
+        $products = $this->productService->getAll();
+        return view('product.list', compact('products'));
     }
+
     public function create()
     {
         return view('product.add');
@@ -25,28 +28,29 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-        $product = new Product();
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->decs = $request->decs;
-        $product->qty = $request->quantity;
-        if ($request->hasFile('image')) {
-            $image = $request->image;
-            $path = $image->store('image','public');
-            $product->image = $path;
-        } else {
-            $product->image = 'images/default.jpg';
-        }
-        $product->save();
+        $this->productService->create($request);
         return redirect()->route('products.index');
     }
-    public function edit()
-    {
 
+    public function edit($id)
+    {
+        $product = $this->productService->findId($id);
+        return view('product.edit',compact('product'));
     }
-    public function delete()
-    {
 
+    public function update(Request $request, $id)
+    {
+        $product= $this->productService->findId($id);
+        $this->productService->update($product, $request);
+        toastr()->success('chinh sua thong tin san pham thanh cong','success');
+        return redirect()->route('products.index');
+    }
+
+    public function delete($id)
+    {
+        $product = $this->productService->findId($id);
+        $this->productService->delete($product);
+        toastr()->success("Delete Success!");
+        return redirect()->route('products.index');
     }
 }

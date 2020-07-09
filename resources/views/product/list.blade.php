@@ -32,18 +32,21 @@
                 </tr>
                 </tfoot>
                 <tbody>
+
                 @forelse($products as $key => $product)
                     <tr>
                         <td width="50">{{ ++$key }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->decs }}</td>
+                        <td>{{ $product->qty }}</td>
                         <td><img src="{{ asset('storage/' . $product->image) }}" alt="" width="100"></td>
-                        <td>{{ $product->title }}</td>
-                        <td>{{ $product->created_at }}</td>
-                        <td>{{ $product->user->name }}</td>
+
                         <td>
-                            <a href="">
+                            <a href="{{route('products.update',$product->id)}}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a onclick="return confirm('ban chac chan muon xoa?')" href="" style="color: red">
+                            <a onclick="return confirm('ban chac chan muon xoa?')" href="{{route('products.delete',$product->id)}}" style="color: red">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
