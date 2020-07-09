@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea  style="width: 50%" class="form-control" name="decs"  >{{ $product->decs }}"</textarea>
+                        <textarea  style="width: 50%" class="form-control" name="decs"  >{{ $product->decs }}</textarea>
                     </div>
                     <div class="form-group">
                         <label >Số lượng</label>

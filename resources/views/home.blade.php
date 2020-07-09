@@ -132,7 +132,7 @@
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Hot Deals</a></li>
+                <li><a href="{{route('product-productlist')}}">List Product</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Laptops</a></li>
                 <li><a href="#">Smartphones</a></li>
@@ -235,7 +235,7 @@
                                 @foreach($products as $product)
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src={{asset("storage/".$product->image)}} alt="">
+                                          <img  src={{asset("storage/".$product->image)}} alt="">
                                             <div class="product-label">
 
                                                 <span class="new">NEW</span>
@@ -243,7 +243,7 @@
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">Category</p>
-                                            <h3 class="product-name"><a href="#">{{$product->name}}</a></h3>
+                                            <h3 class="product-name"><a href="{{route('product.view',$product->id)}}">{{$product->name}}</a></h3>
                                             <h4 class="product-price">{{number_format($product->price)}} VNĐ
 
                                             </h4>

@@ -13,6 +13,15 @@ class ProductController extends Controller
         $products = Product::all();
         return view('product.list', compact('products'));
     }
+    public function show(){
+        $products = Product::all();
+        return view('product.menuProduct', compact('products'));
+    }
+    public function viewProduct($id){
+        $product = Product::findOrFail($id);
+        $products = Product::all();
+        return view('product.detail',compact('product','products'));
+    }
 
     public function add()
     {

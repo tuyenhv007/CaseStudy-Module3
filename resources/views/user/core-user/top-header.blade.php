@@ -50,7 +50,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Your Cart</span>
-                            <div class="qty">3</div>
+                            <div class="qty">{{\Illuminate\Support\Facades\Session::get('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty : 0 }}</div>
                         </a>
                         <div class="cart-dropdown">
                             <div class="cart-list">
