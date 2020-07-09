@@ -68,7 +68,7 @@
         <div class="col-12">
             <div class="table-responsive">
 
-                @empty(!($cart->items))
+                @empty(!\Illuminate\Support\Facades\Session::get('cart'))
                 <table class="table table-striped text-center" >
                     <thead>
                     <tr>
@@ -125,15 +125,15 @@
             </div>
         </div>
         @else
-            <table>
-            <tr><td colspan="6">
+
+            <tr><th colspan="6">
                     <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
-                </td>
-                <td>
+                </th>
+                <th>
                     <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>
-                <td>
+                </th>>
             </tr>
-            </table>
+
         @endempty
 
     </div>

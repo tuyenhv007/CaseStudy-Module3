@@ -7,6 +7,7 @@
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item active"><a href="{{ route('bills.index') }}">List</a></li>
+        <li class="breadcrumb-item active">Detail</li>
     </ol>
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
@@ -30,8 +31,8 @@
                 </table>
                 <h2 style="color: blue; padding-bottom: 20px"><strong>Chi tiết đơn hàng</strong></h2>
                 <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
-                <tr>
+                    <thead>
+                <tr class="table-info">
                     <th>Sản phẩm</th>
                     <th>Hình ảnh</th>
                     <th>Số lượng</th>
@@ -82,7 +83,6 @@
                           </td>
                     </tr>
                 </table>
-
             </form>
         </div>
     </div>
