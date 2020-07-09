@@ -30,7 +30,7 @@
                     <a class="nav-link" href="category.html">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">Product</a>
+                    <a class="nav-link" href="{{route('product-productlist')}}">Product</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('cart.index') }}">Cart <span class="sr-only">(current)</span></a>
@@ -67,6 +67,7 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
+
                 @empty(!($cart->items))
                 <table class="table table-striped text-center" >
                     <thead>
@@ -134,6 +135,7 @@
             </tr>
             </table>
         @endempty
+
     </div>
 </div>
 </body>
