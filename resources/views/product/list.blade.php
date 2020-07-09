@@ -27,6 +27,8 @@
                        onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
             </tr>
         @endforeach
+
         </tbody>
     </table>
+    {{$products->links()}}
 @endsection

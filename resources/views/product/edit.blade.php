@@ -10,19 +10,19 @@
                     @csrf
                     <div class="form-group">
                         <label>Tên sản phẩm</label>
-                        <input style="width: 50%"  type="text" class="form-control" name="name" value="{{ $product->name }}" >
+                        <input style="width: 50%"  type="text" class="form-control" name="name" value="{{ $product->name }}" required>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input style="width: 50%" type="text" class="form-control" name="price"  value="{{ $product->price }}" >
+                        <input style="width: 50%" type="text" class="form-control" name="price"  value="{{ $product->price }}" required>
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea  style="width: 50%" class="form-control" name="decs"  >{{ $product->decs }}</textarea>
+                        <textarea  style="width: 50%" class="form-control" name="decs"  required>{{ $product->decs }}</textarea>
                     </div>
                     <div class="form-group">
                         <label >Số lượng</label>
-                        <input style="width: 50%" type="text" class="form-control" name="qty"  value="{{ $product->qty }}" >
+                        <input style="width: 50%" type="text" class="form-control" name="qty"  value="{{ $product->qty }}" required>
                     </div>
                     <div class="form-group">
                         <label >Image</label>

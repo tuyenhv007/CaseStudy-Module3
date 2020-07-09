@@ -11,8 +11,7 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
-            <h2 style="text-align: center">Thông tin khách hàng</h2>
-            <h4>Khách hàng</h4>
+            <h2 style="text-align: center; color: blue; padding-bottom: 18px"><strong>Thông tin khách hàng</strong></h2>
             <form action="{{ route('bill.update', $bill->id) }}" method="post">
                 @csrf
                 <table class="table table-bordered" width="100%" cellspacing="0">
@@ -29,20 +28,22 @@
                         <td>{{ $bill->customer->phone }}</td>
                     </tr>
                 </table>
-                <h2 style="text-align: center">Chi tiết đơn hàng</h2>
+                <h2 style="text-align: center; color: blue; padding-bottom: 20px"><strong>Chi tiết đơn hàng</strong></h2>
                 <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
                 <tr>
                     <th>Sản phẩm</th>
                     <th>Hình ảnh</th>
                     <th>Số lượng</th>
                     <th>Đơn giá</th>
                 </tr>
+                    </thead>
                     @foreach($bill->products as $key => $value)
 
                     <tr class="data-user">
                         <td>{{ $value['name'] }}</td>
                         <td><img style="width: 100px" src="{{asset('storage/' . $value['image']) }}" alt=""></td>
-                        <td>{{ $detail[$key]['qtyOrder'] }}</td>
+                        <td>x {{ $detail[$key]['qtyOrder'] }}</td>
                         <td>{{number_format($value['price']) }}</td>
                     </tr>
                     @endforeach
