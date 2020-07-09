@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', 'LoginController@formLogin')->name('login');
 Route::post('/login', 'LoginController@login')->name('admin.login');
+
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
 
+
     Route::get('/logout', 'LoginController@logout')->name('admin.logout');
+
 
 
     Route::get('/bills', 'BillController@index')->name('bills.index');
