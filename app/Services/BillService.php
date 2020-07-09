@@ -24,4 +24,10 @@ class BillService
     {
         return $this->billRepo->find($id);
     }
+
+    public function update($bill, $request)
+    {
+        $bill->status = $request->status;
+        $this->billRepo->save($bill);
+    }
 }

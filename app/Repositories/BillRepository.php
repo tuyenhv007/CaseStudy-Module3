@@ -23,4 +23,10 @@ class BillRepository
     {
         return $this->bill->findOrFail($id);
     }
+
+    public function save($bill)
+    {
+        $bill->save();
+        toastr()->success('Cập nhật trạng thái đơn hàng thành công');
+    }
 }

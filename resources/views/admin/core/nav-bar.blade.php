@@ -17,7 +17,10 @@
             <div class="dropdown-divider"></div>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32a4e3af5e637ace730ca9c5ef9600f6d32dfe19
             <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a>
 
         </div>
