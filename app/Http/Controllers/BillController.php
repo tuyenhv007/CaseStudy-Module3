@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Detail;
 use Illuminate\Http\Request;
 use App\Bill;
 use App\Customer;
@@ -27,20 +28,16 @@ class BillController extends Controller
     public function billDetail($billId)
     {
         $bill = $this->billService->findById($billId);
-        return view('admin.bill-detail', compact('bill'));
+//        $productOdBill = $bill->products;
+        $detail = Detail::where('bill_id', $billId)->get();
+        return view('admin.bill-detail', compact('bill', 'detail'));
     }
 
     public function updateStatusBill(Request $request, $id)
     {
-        $bill = Bill::findOrFail($id);
-        $bill->status = $request->status;
-        $bill->save();
-
-        toastr()->success('Cập nhật trạng thái đơn hàng thành công');
-
-
+        $bill = $this->billService->findById($id);
+        $this->billService->update($bill, $request);
         return redirect()->route('bills.index');
     }
-
 
 }

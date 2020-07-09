@@ -7,6 +7,8 @@ use App\Cart;
 use App\Customer;
 use App\Detail;
 use App\Product;
+use App\Mail;
+use App\Mail\ShoppingMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -102,14 +104,15 @@ class CartController extends Controller
         $bill->note = $request->note;
         $bill->customer_id = $customer->id;
         $bill->save();
+//        $detail = [];
         foreach ($cart->items as $key => $product) {
             $details = new Detail();
             $details->bill_id=$bill->id;
             $details->product_id=$key;
             $details->qtyOrder=$product['totalQty'];
-            $details->save();
-
+            $detail[$key] = $details->save();
         }
+//        \Illuminate\Support\Facades\Mail::to($bill->email)->send(new ShoppingMail($bill, $detail));
         toastr()->success('Đơn hàng của bạn đang được xử lý ');
 
         Session::forget('cart');

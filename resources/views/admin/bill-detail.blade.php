@@ -11,37 +11,47 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
-            <h2>Chi tiết hóa đơn</h2>
+            <h2 style="text-align: center">Thông tin khách hàng</h2>
             <h4>Khách hàng</h4>
             <form action="{{ route('bill.update', $bill->id) }}" method="post">
                 @csrf
                 <table class="table table-bordered" width="100%" cellspacing="0">
-                    <tr>
+                    <tr class="data-user">
                         <th>Họ và tên</th>
                         <td>{{ $bill->customer->name}}</td>
                     </tr>
-                    <tr>
+                    <tr class="data-user">
                         <th>Địa chỉ</th>
                         <td>{{ $bill->customer->address }}</td>
                     </tr>
-                    <tr>
+                    <tr class="data-user">
                         <th>Số điện thoại</th>
                         <td>{{ $bill->customer->phone }}</td>
                     </tr>
-                    <tr>
-                        <th>Sản phẩm</th>
-{{--                        {{ dd($bill->products) }}--}}
-                        <td>@foreach($bill->products as $value)
-                            {{ $value->name }}       ,
-                            @endforeach</td>
+                </table>
+                <h2 style="text-align: center">Chi tiết đơn hàng</h2>
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                </tr>
+                    @foreach($bill->products as $key => $value)
 
+                    <tr class="data-user">
+                        <td>{{ $value['name'] }}</td>
+                        <td><img style="width: 100px" src="{{asset('storage/' . $value['image']) }}" alt=""></td>
+                        <td>{{ $detail[$key]['qtyOrder'] }}</td>
+                        <td>{{number_format($value['price']) }}</td>
+                    </tr>
+                    @endforeach
+                    <tr class="data-user">
+                        <td colspan="3"><strong>Tổng tiền</strong></td>
+                        <td>{{number_format($bill->totalPrice) }} VNĐ</td>
                     </tr>
                     <tr>
-                        <th>Tổng tiền</th>
-                        <td>{{ $bill->totalPrice }}</td>
-                    </tr>
-                    <tr>
-                        <th>Trạng thái đơn hàng</th>
+                        <td colspan="2"><strong>Trạng thái đơn hàng</strong></td>
                         <td>
                             <select name="status" id="">
                                 <option value="Đang xử lý" @if($bill->status == "Đang xử lý")
@@ -49,10 +59,10 @@
                                     @endif>
                                     Đang xử lý
                                 </option>
-                                <option value="Đang ship" @if($bill->status == "Đang ship" )
+                                <option value="Đang giao" @if($bill->status == "Đang giao" )
                                 selected
                                     @endif>
-                                    Đang ship
+                                    Đang giao
                                 </option>
                                 <option value="Hoàn thành" @if($bill->status == "Hoàn thành" )
                                 selected
@@ -66,16 +76,13 @@
                                 </option>
                             </select>
                         </td>
-
+                        <td>
+                                <button class="btn-primary" type="submit">Cập nhật</button>
+                          </td>
                     </tr>
-
                 </table>
-                <div>
-                    <button class="btn-primary" type="submit">Cập nhật trạng thái đơn hàng</button>
-                </div>
+
             </form>
-
-
         </div>
     </div>
 @endsection

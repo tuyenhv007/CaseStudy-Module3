@@ -34,20 +34,20 @@
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input checkbox-info" data-id="data-email"
                                        id="checkbox-email" checked>
-                                <label class="custom-control-label" for="checkbox-email">Email</label>
+                                <label class="custom-control-label" for="checkbox-email">Mã Bill</label>
                             </div>
                         </a>
                         <a class="dropdown-item" href="#">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input checkbox-info" id="checkbox3"
                                        checked>
-                                <label class="custom-control-label" for="checkbox3">Birthday</label>
+                                <label class="custom-control-label" for="checkbox3">ID Khách hàng</label>
                             </div>
                         </a>
                         <a class="dropdown-item" href="#">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="checkbox4" checked>
-                                <label class="custom-control-label" for="checkbox4">Role</label>
+                                <label class="custom-control-label" for="checkbox4">Trạng thái</label>
                             </div>
                         </a>
                     </div>
@@ -78,7 +78,6 @@
                         <td>{{ $bill['customer_id'] }}</td>
                         <td>{{ $bill['status']}}</td>
                         <td>{{ $bill['created_at'] }}</td>
-
                     </tr>
                 @endforeach()
                 </tbody>

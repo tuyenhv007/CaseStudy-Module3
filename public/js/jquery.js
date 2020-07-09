@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 
     $('.data-user').mouseenter(function () {
-        $(this).css("background-color", "blue");
+        $(this).css("background-color", "red");
         $(this).css("color", "white")
     }).mouseleave(function () {
         $(this).css("background-color", "white");
