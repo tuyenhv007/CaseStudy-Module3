@@ -26,7 +26,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('/{id}/update', 'BillController@updateStatusBill')->name('bill.update');
     });
 
-
     Route::prefix('products')->group(function () {
         Route::get('/', 'ProductController@index')->name('product.index');
         Route::get('/add', 'ProductController@add')->name('product.add');
