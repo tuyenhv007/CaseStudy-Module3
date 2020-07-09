@@ -49,12 +49,12 @@
                         <td>{{ $value['name'] }}</td>
                         <td><img style="width: 100px" src="{{asset('storage/' . $value['image']) }}" alt=""></td>
                         <td>x {{ $detail[$key]['qtyOrder'] }}</td>
-                        <td>{{number_format($value['price']) }}</td>
+                        <td>{{number_format(floatval($value['price'])) }}</td>
                     </tr>
                     @endforeach
                     <tr class="data-user">
                         <td colspan="3"><strong>Tổng tiền</strong></td>
-                        <td>{{number_format($bill->totalPrice) }} VNĐ</td>
+                        <td>{{number_format(floatval($bill->totalPrice)) }} VNĐ</td>
                     </tr>
                     <tr>
                         <td colspan="2"><strong>Trạng thái đơn hàng</strong></td>

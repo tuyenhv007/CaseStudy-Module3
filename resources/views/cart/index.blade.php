@@ -91,7 +91,7 @@
                                     <input type="number" name="qty" data-id="{{ $item['item']->id }}" min="1"
                                            class="form-control update-product-cart" value="{{ $item['totalQty'] }}">
                                 </td>
-                                <td class="text-right">{{number_format($item['item']->price)}} VNĐ</td>
+                                <td class="text-right">{{number_format(floatval($item['item']->price))}} VNĐ</td>
                                 <td id="product-subtotal-{{$item['item']->id}}"
                                     class="text-right">{{($item['totalPrice'])}} VNĐ
                                 </td>
@@ -106,7 +106,7 @@
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Total</strong></td>
-                            <td id="total-price-cart" class="text-right"><strong>{{($cart->totalPrice)}} VNĐ</strong>
+                            <td id="total-price-cart" class="text-right"><strong>{{ number_format(floatval($cart->totalPrice))}} VNĐ</strong>
                             </td>
                             <td colspan="2"></td>
                         </tr>

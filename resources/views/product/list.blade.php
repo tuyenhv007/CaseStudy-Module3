@@ -28,7 +28,7 @@
                     <tr class="data-user">
                         <th scope="row">{{ ++$key }}</th>
                         <td>{{ $product->name }}</td>
-                        <td>{{ number_format($product->price) }} VNĐ</td>
+                        <td>{{ number_format(floatval($product->price)) }} VNĐ</td>
                         <td>{{ $product->decs }}</td>
                         <td>{{ $product->qty }}</td>
                         <td><img style="width: 100px" src={{asset("storage/".$product->image)}}></td>
