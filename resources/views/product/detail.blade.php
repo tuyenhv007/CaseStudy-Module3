@@ -96,7 +96,10 @@
 
                         <!-- Cart -->
                         <div class="dropdown">
-                            <a href="{{route('cart.index')}}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+
+                            <a href="{{route('cart.index')}}" >
+
+                      
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
                                 <div class="qty">{{\Illuminate\Support\Facades\Session::get('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty : 0 }}</div>

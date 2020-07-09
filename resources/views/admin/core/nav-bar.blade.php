@@ -17,7 +17,6 @@
             <div class="dropdown-divider"></div>
 
 
-
             <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a>
 
         </div>
