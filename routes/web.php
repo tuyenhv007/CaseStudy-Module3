@@ -24,8 +24,6 @@ Route::prefix('admin')->group(function () {
     Route::post('/bills/{id}/update', 'BillController@updateStatusBill')->name('bill.update');
 });
 
-//Route::get('/admin/bill', 'BillController@getCustomerByBill');
-//Route::get('/admin/bill', 'BillController@getProductByBill');
 Route::get('/', 'ShopController@index')->name('shop-home');
 Route::get('/{idProduct}/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::prefix('cart')->group(function () {

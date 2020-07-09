@@ -16,7 +16,7 @@ class LoginService
     public function login($request)
     {
         $user = [
-            'email' => $request->email,
+            'name' => $request->email,
             'password' => $request->password
         ];
 
