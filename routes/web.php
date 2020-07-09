@@ -20,7 +20,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
 
 
+
     Route::get('/logout', 'LoginController@logout')->name('admin.logout');
+
 
 
 
