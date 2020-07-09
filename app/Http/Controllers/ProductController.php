@@ -47,6 +47,7 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::findOrFail($id);
+        $product->bills()->detach();
         $product->delete();
         toastr()->success('Xóa sản phẩm thành công');
         return redirect()->route('product.index');

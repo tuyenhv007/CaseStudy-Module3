@@ -17,17 +17,10 @@ Route::get('/login', 'LoginController@formLogin')->name('login');
 Route::post('/login', 'LoginController@login')->name('admin.login');
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
-<<<<<<< HEAD
-    Route::get('/logout', 'LoginController@logout')->name('admin.logout');
-=======
 
-  
-
-    Route::get('/login', 'LoginController@formLogin')->name('login');
-    Route::post('/login', 'LoginController@login')->name('admin.login');
     Route::get('/logout', 'LoginController@logout')->name('admin.logout');
 
->>>>>>> 32a4e3af5e637ace730ca9c5ef9600f6d32dfe19
+
     Route::get('/bills', 'BillController@index')->name('bills.index');
     Route::get('/bills/{id}/detail', 'BillController@billDetail')->name('bill.detail');
     Route::post('/bills/{id}/update', 'BillController@updateStatusBill')->name('bill.update');
