@@ -244,7 +244,7 @@
                                         <div class="product-body">
                                             <p class="product-category">Category</p>
                                             <h3 class="product-name"><a href="{{route('product.view',$product->id)}}">{{$product->name}}</a></h3>
-                                            <h4 class="product-price">{{number_format($product->price)}} VNĐ
+                                            <h4 class="product-price">{{($product->price)}} VNĐ
 
                                             </h4>
                                             <div class="product-rating">
