@@ -73,6 +73,7 @@
             <div class="table-responsive">
 
                 @empty(!\Illuminate\Support\Facades\Session::get('cart'))
+                    @empty(!$cart->items)
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
@@ -147,7 +148,7 @@
 
                 </tr>
         @endempty
-
+        @endempty
     </div>
 </div>
 </body>
