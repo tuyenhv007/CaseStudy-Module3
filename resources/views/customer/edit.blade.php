@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Địa chỉ</label>
-                                <textarea style="width: 50%" class="form-control" name="address" required>{{ $customer->address }}"</textarea>
+                                <textarea style="width: 50%" class="form-control" name="address" required>{{ $customer->address }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Điện thoại</label>

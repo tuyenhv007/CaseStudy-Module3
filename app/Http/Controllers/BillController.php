@@ -21,7 +21,6 @@ class BillController extends Controller
     public function index()
     {
         $bills = $this->billService->getAll();
-
         return view('admin.list-bill', compact('bills'));
     }
 

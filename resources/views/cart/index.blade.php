@@ -25,7 +25,7 @@
                     <a class="nav-link" href="{{route('shop-home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.html">Categories</a>
+                    <a class="nav-link" href="">Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('product-productlist')}}">Product</a>
@@ -66,6 +66,8 @@
         <div class="col-12">
             <div class="table-responsive">
                 @empty(!\Illuminate\Support\Facades\Session::get('cart'))
+
+                @empty(!$cart->items)
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
@@ -93,7 +95,7 @@
                                 </td>
                                 <td class="text-right">{{number_format(floatval($item['item']->price))}} VNĐ</td>
                                 <td id="product-subtotal-{{$item['item']->id}}"
-                                    class="text-right">{{($item['totalPrice'])}} VNĐ
+                                    class="text-right">{{ number_format(floatval($item['totalPrice']))}} VNĐ
                                 </td>
                                 <td class="text-right"><a href="{{route('cart.remove',$item['item']->id)}}"
                                                           class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a>
@@ -106,7 +108,7 @@
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Total</strong></td>
-                            <td id="total-price-cart" class="text-right"><strong>{{ number_format(floatval($cart->totalPrice))}} VNĐ</strong>
+                            <td id="total-price-cart" class="text-right"><strong>{{number_format(floatval($cart->totalPrice)) }} VNĐ</strong>
                             </td>
                             <td colspan="2"></td>
                         </tr>
@@ -135,6 +137,17 @@
                     </th>
 
                 </tr>
+        @endempty
+        @else
+            <tr>
+                <th colspan="2">
+                    <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
+                </th>
+                <th>
+                    <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>
+                </th>
+
+            </tr>
         @endempty
     </div>
 </div>

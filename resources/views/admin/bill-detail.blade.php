@@ -30,6 +30,10 @@
                         <th>Số điện thoại</th>
                         <td>{{ $bill->customer->phone }}</td>
                     </tr>
+                    <tr class="data-user">
+                        <th>Email</th>
+                        <td>{{ $bill->customer->email }}</td>
+                    </tr>
                 </table>
 
                 <h2 style="color: blue; padding-bottom: 20px"><strong>Chi tiết đơn hàng</strong></h2>
