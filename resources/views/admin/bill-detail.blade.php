@@ -7,11 +7,14 @@
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item active"><a href="{{ route('bills.index') }}">List</a></li>
+        <li class="breadcrumb-item active">Detail</li>
     </ol>
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
+
             <h2 style="color: blue; padding-bottom: 18px"><strong>Thông tin khách hàng</strong></h2>
+
             <form action="{{ route('bill.update', $bill->id) }}" method="post">
                 @csrf
                 <table class="table table-bordered" width="100%" cellspacing="0">
@@ -27,11 +30,17 @@
                         <th>Số điện thoại</th>
                         <td>{{ $bill->customer->phone }}</td>
                     </tr>
+                    <tr class="data-user">
+                        <th>Email</th>
+                        <td>{{ $bill->customer->email }}</td>
+                    </tr>
                 </table>
+
                 <h2 style="color: blue; padding-bottom: 20px"><strong>Chi tiết đơn hàng</strong></h2>
+
                 <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
-                <tr>
+                    <thead>
+                <tr class="table-info">
                     <th>Sản phẩm</th>
                     <th>Hình ảnh</th>
                     <th>Số lượng</th>
@@ -44,12 +53,12 @@
                         <td>{{ $value['name'] }}</td>
                         <td><img style="width: 100px" src="{{asset('storage/' . $value['image']) }}" alt=""></td>
                         <td>x {{ $detail[$key]['qtyOrder'] }}</td>
-                        <td>{{number_format($value['price']) }}</td>
+                        <td>{{number_format(floatval($value['price'])) }}</td>
                     </tr>
                     @endforeach
                     <tr class="data-user">
                         <td colspan="3"><strong>Tổng tiền</strong></td>
-                        <td>{{number_format($bill->totalPrice) }} VNĐ</td>
+                        <td>{{number_format(floatval($bill->totalPrice)) }} VNĐ</td>
                     </tr>
                     <tr>
                         <td colspan="2"><strong>Trạng thái đơn hàng</strong></td>
@@ -82,7 +91,6 @@
                           </td>
                     </tr>
                 </table>
-
             </form>
         </div>
     </div>

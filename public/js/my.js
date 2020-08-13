@@ -3,7 +3,6 @@ $(document).ready(function () {
         let qtyNew = $(this).val();
         let idProduct = $(this).attr('data-id');
         let origin = location.origin;
-        console.log(origin)
 
         $.ajaxSetup({
             headers: {
@@ -11,7 +10,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: origin + '/cart/update-to-cart/' + idProduct,
+            url: origin + '/carts/update-to-cart/' + idProduct,
             method: 'POST',
             data: {
                 qty: qtyNew
@@ -20,8 +19,10 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result)
                 let data = result.productUpdate;
-                $('#product-subtotal-' + idProduct).html(data.totalPrice.toLocaleString () + ' VNĐ')
-                $('#total-price-cart').html('<strong>' + result.totalPriceCart.toLocaleString () + ' VNĐ' + '</strong>')
+
+                $('#product-subtotal-' + idProduct).html(data.totalPrice . toLocaleString () + ' VNĐ')
+                $('#total-price-cart').html('<strong>' + result.totalPriceCart . toLocaleString () + ' VNĐ' + '</strong>')
+
             },
 
         })

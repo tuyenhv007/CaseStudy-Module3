@@ -11,10 +11,7 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}"/>
 </head>
-
-
 <body>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{route('shop-home')}}">CodeGym Computer</a>
@@ -22,14 +19,13 @@
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item m-auto">
                     <a class="nav-link" href="{{route('shop-home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.html">Categories</a>
+                    <a class="nav-link" href="">Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('product-productlist')}}">Product</a>
@@ -41,7 +37,6 @@
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
-
             <form class="form-inline my-2 my-lg-0">
                 <div class="input-group input-group-sm">
                     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
@@ -66,14 +61,15 @@
         <h1 class="jumbotron-heading">Giỏ hàng của bạn</h1>
     </div>
 </section>
-
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-
                 @empty(!\Illuminate\Support\Facades\Session::get('cart'))
-                    @empty(!$cart->items)
+
+
+                @empty(!$cart->items)
+
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
@@ -85,7 +81,6 @@
                             <th scope="col" class="text-right">Total Price</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -100,30 +95,27 @@
                                     <input type="number" name="qty" data-id="{{ $item['item']->id }}" min="1"
                                            class="form-control update-product-cart" value="{{ $item['totalQty'] }}">
                                 </td>
-                                <td class="text-right">{{number_format($item['item']->price)}} VNĐ</td>
+                                <td class="text-right">{{number_format(floatval($item['item']->price))}} VNĐ</td>
                                 <td id="product-subtotal-{{$item['item']->id}}"
-                                    class="text-right">{{($item['totalPrice'])}} VNĐ
+                                    class="text-right">{{ number_format(floatval($item['totalPrice']))}} VNĐ
                                 </td>
                                 <td class="text-right"><a href="{{route('cart.remove',$item['item']->id)}}"
                                                           class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a>
                                 </td>
                             </tr>
                         @endforeach
-
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Total</strong></td>
-                            <td id="total-price-cart" class="text-right"><strong>{{($cart->totalPrice)}} VNĐ</strong>
+                            <td id="total-price-cart" class="text-right"><strong>{{number_format(floatval($cart->totalPrice)) }} VNĐ</strong>
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         </tbody>
-
                     </table>
-
             </div>
         </div>
         <div class="col mb-2">
@@ -148,6 +140,18 @@
 
                 </tr>
         @endempty
+
+        @else
+            <tr>
+                <th colspan="2">
+                    <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
+                </th>
+                <th>
+                    <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>
+                </th>
+
+            </tr>
+
         @endempty
     </div>
 </div>
