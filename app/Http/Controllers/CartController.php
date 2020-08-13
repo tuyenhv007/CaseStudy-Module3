@@ -110,7 +110,7 @@ class CartController extends Controller
             $details->bill_id=$bill->id;
             $details->product_id=$key;
             $details->qtyOrder=$product['totalQty'];
-            $detail[$key] = $details->save();
+            $details->save();
         }
 //        \Illuminate\Support\Facades\Mail::to($bill->email)->send(new ShoppingMail($bill, $detail));
         toastr()->success('Đơn hàng của bạn đang được xử lý ');

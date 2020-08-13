@@ -67,7 +67,11 @@
             <div class="table-responsive">
                 @empty(!\Illuminate\Support\Facades\Session::get('cart'))
 
+
+
                 @empty(!$cart->items)
+
+
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
@@ -93,9 +97,11 @@
                                     <input type="number" name="qty" data-id="{{ $item['item']->id }}" min="1"
                                            class="form-control update-product-cart" value="{{ $item['totalQty'] }}">
                                 </td>
-                                <td class="text-right">{{number_format($item['item']->price)}} VNĐ</td>
+                                <td class="text-right">{{number_format(floatval($item['item']->price))}} VNĐ</td>
                                 <td id="product-subtotal-{{$item['item']->id}}"
-                                    class="text-right">{{ number_format($item['totalPrice'])}} VNĐ
+
+                                    class="text-right">{{ number_format(floatval($item['totalPrice']))}} VNĐ
+
                                 </td>
                                 <td class="text-right"><a href="{{route('cart.remove',$item['item']->id)}}"
                                                           class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a>
@@ -108,7 +114,9 @@
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Total</strong></td>
-                            <td id="total-price-cart" class="text-right"><strong>{{number_format($cart->totalPrice) }} VNĐ</strong>
+
+                            <td id="total-price-cart" class="text-right"><strong>{{number_format(floatval($cart->totalPrice)) }} VNĐ</strong>
+
                             </td>
                             <td colspan="2"></td>
                         </tr>
@@ -147,7 +155,9 @@
                     <a class="btn btn-primary" href="{{route('shop-home')}}">Continus Shoping </a>
                 </th>
 
+
             </tr>
+
         @endempty
     </div>
 </div>

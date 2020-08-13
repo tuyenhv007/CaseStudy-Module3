@@ -30,6 +30,7 @@
             <nav class="sb-sidenav-menu-nested nav">
                 <a href="{{ route('bills.index') }}" class="nav-link">List</a>
         </div>
+
         <div class="collapse" id="collapsePages" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"

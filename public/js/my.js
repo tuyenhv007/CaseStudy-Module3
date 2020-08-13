@@ -3,7 +3,6 @@ $(document).ready(function () {
         let qtyNew = $(this).val();
         let idProduct = $(this).attr('data-id');
         let origin = location.origin;
-        console.log(origin)
 
         $.ajaxSetup({
             headers: {
@@ -20,8 +19,12 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result)
                 let data = result.productUpdate;
+
+
                 $('#product-subtotal-' + idProduct).html(data.totalPrice . toLocaleString () + ' VNĐ')
                 $('#total-price-cart').html('<strong>' + result.totalPriceCart . toLocaleString () + ' VNĐ' + '</strong>')
+
+
             },
 
         })

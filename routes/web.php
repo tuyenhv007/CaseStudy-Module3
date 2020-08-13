@@ -20,6 +20,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'LoginController@dashboard')->name('admin.dashboard');
     Route::get('/logout', 'LoginController@logout')->name('admin.logout');
 
+
     Route::prefix('bills')->group(function () {
         Route::get('/', 'BillController@index')->name('bills.index');
         Route::get('/{id}/detail', 'BillController@billDetail')->name('bill.detail');
@@ -35,11 +36,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('/{id}/edit', 'ProductController@update')->name('product.update');
     });
 
+
     Route::prefix('customers')->group(function () {
         Route::get('/', 'CustomerController@index')->name('customer.index');
         Route::get('/{id}/edit', 'CustomerController@edit')->name('customer.edit');
         Route::post('/{id}/edit', 'CustomerController@update')->name('customer.update');
     });
+
+});
 
 });
 
