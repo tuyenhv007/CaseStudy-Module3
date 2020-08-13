@@ -8,6 +8,7 @@
         </li>
         <li class="breadcrumb-item active"><a href="{{ route('bills.index') }}">List</a></li>
     </ol>
+
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
@@ -40,10 +41,12 @@
                             text-danger
                         @endif">{{ $bill['status']}}</td>
                         <td>{{ $bill['created_at'] }}</td>
-                    </tr>
-                @endforeach()
-                </tbody>
-            </table>
+
+                        </tr>
+                    @endforeach()
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

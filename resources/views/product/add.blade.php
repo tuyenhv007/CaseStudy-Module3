@@ -8,6 +8,7 @@
         <li class="breadcrumb-item active">Add</li>
     </ol>
 
+
     <div class="card-body">
         <div class="table-responsive">
             <div class="col-12">
@@ -44,6 +45,8 @@
                         <a href="{{ route('product.index') }}" class="btn btn-secondary">Hủy bỏ</a>
                     </div>
                 </form>
+
+  
             </div>
         </div>
     </div>

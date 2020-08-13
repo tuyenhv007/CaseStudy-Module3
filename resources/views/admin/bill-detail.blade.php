@@ -9,11 +9,12 @@
         <li class="breadcrumb-item active"><a href="{{ route('bills.index') }}">List</a></li>
         <li class="breadcrumb-item active">Detail</li>
     </ol>
-    <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
 
+
             <h2 style="color: blue; padding-bottom: 18px"><strong>Thông tin khách hàng</strong></h2>
+
 
             <form action="{{ route('bill.update', $bill->id) }}" method="post">
                 @csrf
@@ -36,7 +37,9 @@
                     </tr>
                 </table>
 
+
                 <h2 style="color: blue; padding-bottom: 20px"><strong>Chi tiết đơn hàng</strong></h2>
+
 
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>

@@ -6,6 +6,7 @@
         </li>
         <li class="breadcrumb-item active"><a href="{{route('product.index')}}">List</a></li>
     </ol>
+
     <div class="card-header"><i class="fas fa-table mr-1"></i></div>
     <div class="card-body">
         <div class="table-responsive">
@@ -41,6 +42,8 @@
                 </tbody>
             </table>
             {{$products->links()}}
+
+  
         </div>
     </div>
 @endsection

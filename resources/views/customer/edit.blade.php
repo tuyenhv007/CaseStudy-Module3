@@ -7,6 +7,7 @@
         <li class="breadcrumb-item active"><a href="{{route('customer.index')}}">List </a></li>
         <li class="breadcrumb-item active">Edit</li>
     </ol>
+
     <div class="col-md-12 pt-4">
         <div class="card">
             <div class="card-body">
@@ -20,20 +21,25 @@
                             @csrf
                             <div class="form-group">
                                 <label>Tên khách hàng</label>
+
                                 <input style="width: 50%" type="text" class="form-control" name="name"
                                        value="{{ $customer->name }}" required>
                             </div>
                             <div class="form-group">
+
                                 <label>Email</label>
+
                                 <input style="width: 50%" type="text" class="form-control" name="email"
                                        value="{{ $customer->email }}" required>
                             </div>
                             <div class="form-group">
+
                                 <label>Địa chỉ</label>
                                 <textarea style="width: 50%" class="form-control" name="address" required>{{ $customer->address }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Điện thoại</label>
+
                                 <input style="width: 50%" type="text" class="form-control" name="phone"
                                        value="{{ $customer->phone }}" required>
                             </div>
@@ -46,5 +52,10 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+    </div>
+
+
 @endsection
 

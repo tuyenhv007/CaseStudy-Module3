@@ -7,6 +7,7 @@
         <li class="breadcrumb-item active"><a href="{{route('product.index')}}">List </a></li>
         <li class="breadcrumb-item active">Edit</li>
     </ol>
+
     <div class="col-md-12 pt-4">
         <div class="card">
             <div class="card-body">
@@ -52,6 +53,7 @@
                             </div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
     </ol>
+
     <div class="card-body">
         <div class="table-responsive">
             <h2 style="text-align: center; padding-bottom: 18px; color: blue"><strong>Danh sách hóa đơn</strong></h2>
@@ -43,4 +44,5 @@
 </table>
 </div>
 </div>
+
 @endsection

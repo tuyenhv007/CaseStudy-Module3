@@ -20,8 +20,10 @@ $(document).ready(function () {
                 console.log(result)
                 let data = result.productUpdate;
 
+
                 $('#product-subtotal-' + idProduct).html(data.totalPrice . toLocaleString () + ' VNĐ')
                 $('#total-price-cart').html('<strong>' + result.totalPriceCart . toLocaleString () + ' VNĐ' + '</strong>')
+
 
             },
 
